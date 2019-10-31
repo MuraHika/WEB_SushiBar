@@ -1,1 +1,65 @@
-<p>adminka works! Ura</p>
+<div class="content" role="main">
+    <p>Вы на странице админа, заполните поля:</p>
+    <form>
+        <div class="d7">
+            <p><b>Название продукта:</b><br>
+                <input type="text" size="40" name="naming" [(ngModel)]="naming">
+            </p>
+
+            <p><b>Тип продукта:</b><br>
+                <input type="text" size="40" name="type_product" [(ngModel)]="type_product">
+            </p>
+
+            <p><b>Состав:</b><br>
+                <input type="text" size="40" name="composition" [(ngModel)]="composition">
+            </p>
+
+            <p><b>Вес:</b><br>
+                <input type="text" size="40" name="weight" [(ngModel)]="weight">
+            </p>
+
+            <a class="knopka" (click)="submit(naming, type_product, composition, weight)">Добавить продукт</a>
+            <a class="knopka" (click)="delete(naming)">Удалить продукт</a>
+            <a class="knopka" (click)="update(naming, type_product, composition, weight)">Редактировать продукт</a>
+            <!-- <a class="knopka" (click)="get(naming)">Получить продукт</a> -->
+            <a class="knopka" (click)="update_list()">Список всех продуктов</a>
+
+        </div>
+    </form>
+    <br>
+    <table>
+        <tr>
+            <td>
+                <p>ID</p>
+            </td>
+            <td>
+                <p> Название </p>
+            </td>
+            <td>
+                <p> Тип </p>
+            </td>
+            <td>
+                <p>Состав </p>
+            </td>
+            <td>
+                <p> Вес </p>
+            </td>
+        </tr>
+        <tr *ngFor="let product of products">
+            <td>
+                <p> {{product["product_id"]}}</p>
+            </td>
+            <td>
+                <p>{{product["naming"]}}</p>
+            <td>
+                <p> {{product["type_product"]}}</p>
+            </td>
+            <td>
+                <p> {{product["composition"]}}</p>
+            </td>
+            <td>
+                <p> {{product["weight"]}}</p>
+            </td>
+        </tr>
+    </table>
+</div>

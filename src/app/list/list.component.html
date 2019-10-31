@@ -1,1 +1,38 @@
-<p>list works!</p>
+<div class="content" role="main">
+    <p>Список всех продуктов:</p>
+    <table>
+        <tr>
+            <td>
+                <p>ID</p>
+            </td>
+            <td>
+                <p> Название </p>
+            </td>
+            <td>
+                <p> Тип </p>
+            </td>
+            <td>
+                <p>Состав </p>
+            </td>
+            <td>
+                <p> Вес </p>
+            </td>
+        </tr>
+        <tr *ngFor="let product of products">
+            <td>
+                <p> {{product["product_id"]}}</p>
+            </td>
+            <td>
+                <p>{{product["naming"]}}</p>
+            <td>
+                <p> {{product["type_product"]}}</p>
+            </td>
+            <td>
+                <p> {{product["composition"]}}</p>
+            </td>
+            <td>
+                <p> {{product["weight"]}}</p>
+            </td>
+        </tr>
+    </table>
+</div>
