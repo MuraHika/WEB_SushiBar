@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Router, NavigationEnd } from '@angular/router';
+import { User } from './user_info';
 
 
 @Component({
@@ -20,6 +21,8 @@ export class AppComponent {
         }).subscribe(
           (data:string) => {
             this.SEE(data, true);
+            User.Info.Name = data.split(' ')[0];
+            User.Info.Role = data.split(' ')[1];
           }, 
           (error: any) => {
             this.SEE("", false);

@@ -1,8 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-// import {Subscription} from 'rxjs/Subscription';
-
-// import {MessageService} from './../MessageService';
 
 @Component({
   selector: 'app-main',

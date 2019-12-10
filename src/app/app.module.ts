@@ -10,11 +10,12 @@ import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { AdminGuard }   from './guard';
 
 const appRoutes: Routes = [
   { path: 'main', component: MainComponent },
   { path: 'list', component: ListComponent },
-  { path: 'adminka', component: AdminkaComponent },
+  { path: 'adminka', component: AdminkaComponent, canActivate: [AdminGuard] },
   { path: 'login', component: LoginComponent},
   { path: 'registration', component: RegistrationComponent},
   { path: '', redirectTo: '/main', pathMatch: 'full' }
@@ -39,7 +40,7 @@ const appRoutes: Routes = [
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AdminGuard],
   bootstrap: [AppComponent]
 })
 
