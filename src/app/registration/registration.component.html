@@ -1,0 +1,19 @@
+<div class="content" role="main">
+    <p>Введите Имя, E-mail и пароль, чтобы зарегистрироваться в системе:</p>
+    <form>
+        <div class="d7">
+            <p><b>Имя пользователя:</b><br>
+                <input type="text" size="40" name="user_name" [(ngModel)]="user_name">
+            </p>
+
+            <p><b>E-mail:</b><br>
+                <input type="text" size="40" name="e_mail" [(ngModel)]="e_mail">
+            </p>
+
+            <p><b>Пароль:</b><br>
+                <input type="text" size="40" name="hash_password" [(ngModel)]="hash_password">
+            </p>
+            <a class="knopka" (click)="register(e_mail, hash_password, user_name)">Зарегистрироваться</a>
+        </div>
+    </form>
+</div>

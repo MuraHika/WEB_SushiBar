@@ -18,10 +18,13 @@
                 <input type="text" size="40" name="weight" [(ngModel)]="weight">
             </p>
 
-            <a class="knopka" (click)="submit(naming, type_product, composition, weight)">Добавить продукт</a>
+            <p><b>Цена:</b><br>
+                <input type="text" size="40" name="cost" [(ngModel)]="cost">
+            </p>
+
+            <a class="knopka" (click)="submit(naming, type_product, composition, weight,cost)">Добавить продукт</a>
             <a class="knopka" (click)="delete(naming)">Удалить продукт</a>
-            <a class="knopka" (click)="update(naming, type_product, composition, weight)">Редактировать продукт</a>
-            <!-- <a class="knopka" (click)="get(naming)">Получить продукт</a> -->
+            <a class="knopka" (click)="update(naming, type_product, composition, weight, cost)">Редактировать продукт</a>
             <a class="knopka" (click)="update_list()">Список всех продуктов</a>
 
         </div>
@@ -44,6 +47,9 @@
             <td>
                 <p> Вес </p>
             </td>
+            <td>
+                <p> Цена </p>
+            </td>
         </tr>
         <tr *ngFor="let product of products">
             <td>
@@ -59,6 +65,9 @@
             </td>
             <td>
                 <p> {{product["weight"]}}</p>
+            </td>
+            <td>
+                <p> {{product["cost"]}}</p>
             </td>
         </tr>
     </table>

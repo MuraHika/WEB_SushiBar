@@ -8,11 +8,15 @@ import { MainComponent } from './main/main.component';
 import { AdminkaComponent } from './adminka/adminka.component';
 import {FormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 const appRoutes: Routes = [
   { path: 'main', component: MainComponent },
   { path: 'list', component: ListComponent },
   { path: 'adminka', component: AdminkaComponent },
+  { path: 'login', component: LoginComponent},
+  { path: 'registration', component: RegistrationComponent},
   { path: '', redirectTo: '/main', pathMatch: 'full' }
 ];
 
@@ -21,7 +25,9 @@ const appRoutes: Routes = [
     AppComponent,
     ListComponent,
     MainComponent,
-    AdminkaComponent
+    AdminkaComponent,
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     HttpClientModule,

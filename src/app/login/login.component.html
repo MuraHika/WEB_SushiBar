@@ -1,0 +1,16 @@
+<div class="content" role="main">
+    <p>Введите E-mail и пароль, чтобы войти в систему:</p>
+    <form>
+        <div class="d7">
+            <p><b>E-mail:</b><br>
+                <input type="text" size="40" name="e_mail" [(ngModel)]="e_mail">
+            </p>
+
+            <p><b>Пароль:</b><br>
+                <input type="text" size="40" name="hash_password" [(ngModel)]="hash_password">
+            </p>
+
+            <a class="knopka" (click)="login(e_mail, hash_password)">Войти</a>
+        </div>
+    </form>
+</div>

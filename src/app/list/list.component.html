@@ -17,6 +17,9 @@
             <td>
                 <p> Вес </p>
             </td>
+            <td>
+                <p> Цена </p>
+            </td>
         </tr>
         <tr *ngFor="let product of products">
             <td>
@@ -32,6 +35,9 @@
             </td>
             <td>
                 <p> {{product["weight"]}}</p>
+            </td>
+            <td>
+                <p> {{product["cost"]}}</p>
             </td>
         </tr>
     </table>
