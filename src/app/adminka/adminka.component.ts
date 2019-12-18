@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Product } from './../Product';
 
 @Component({
@@ -18,22 +18,31 @@ export class AdminkaComponent implements OnInit {
   str: string;
   ngOnInit() {
     this.update_list();
+    let ws = new WebSocket("ws://localhost:5000/event");
+    ws.onopen = () => {
+      ws.onmessage = (event) => {
+        console.log(event);
+        let data = JSON.parse(event.data);
+        if (data.event == "changes_product")
+          this.update_list()
+      };
+    };
   }
 
   submit(naming: string, type_product: string, composition: string, weight: number, cost: number) {
     console.log(naming, type_product, composition, weight, cost)
     let product = new Product(naming, type_product, composition, weight, cost)
     console.log(this.product)
-    this.http.post('http://localhost:5000/api/1.0/products/add', product, {withCredentials: true}).subscribe(
-      (data)=>this.update_list());
+    this.http.post('http://localhost:5000/api/1.0/products/add', product, { withCredentials: true }).subscribe(
+      (data) => this.update_list());
   }
 
   delete(naming: string) {
     console.log(naming)
     let str = naming
     console.log(str)
-    this.http.post('http://localhost:5000/api/1.0/products/delete', str, {withCredentials: true}).subscribe(
-      (data)=>this.update_list()
+    this.http.post('http://localhost:5000/api/1.0/products/delete', str, { withCredentials: true }).subscribe(
+      (data) => this.update_list()
     );
   }
 
@@ -41,19 +50,19 @@ export class AdminkaComponent implements OnInit {
     console.log(naming)
     let product = new Product(naming, type_product, composition, weight, cost)
     console.log(this.str)
-    this.http.post('http://localhost:5000/api/1.0/products/update', product, {withCredentials: true}).subscribe(
-      (data)=>this.update_list()
+    this.http.post('http://localhost:5000/api/1.0/products/update', product, { withCredentials: true }).subscribe(
+      (data) => this.update_list()
     );
   }
 
-  update_list(){
-    this.http.post('http://localhost:5000/api/1.0/products/getList/', {withCredentials: true}).subscribe((response: any) => {
+  update_list() {
+    this.http.post('http://localhost:5000/api/1.0/products/getList/', { withCredentials: true }).subscribe((response: any) => {
       console.log("response", response);
       this.products = [];
       response.forEach(element => {
         this.products.push(element);
       });
     });
-    console.log("debug",this.products);
+    console.log("debug", this.products);
   }
 }

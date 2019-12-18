@@ -14,17 +14,26 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.update_list();
+    let ws = new WebSocket("ws://localhost:5000/event");
+    ws.onopen = () => {
+      ws.onmessage = (event) => {
+        console.log(event);
+        let data = JSON.parse(event.data);
+        if (data.event == "changes_product")
+          this.update_list()
+      };
+    };
   }
   products: Array<Product> = [];
 
   update_list() {
-    this.http.get('http://localhost:5000/api/1.0/products/getList').subscribe((response: any) => {
+    this.http.post('http://localhost:5000/api/1.0/products/getList/', {withCredentials: true}).subscribe((response: any) => {
       console.log("response", response);
       this.products = [];
       response.forEach(element => {
         this.products.push(element);
       });
     });
-    console.log("debug", this.products);
+    console.log("debug",this.products);
   }
 }
