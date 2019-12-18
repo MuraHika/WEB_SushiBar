@@ -6,18 +6,21 @@ import { AppComponent } from './app.component';
 import { ListComponent } from './list/list.component';
 import { MainComponent } from './main/main.component';
 import { AdminkaComponent } from './adminka/adminka.component';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AdminGuard }   from './guard';
+import { loginGuard }   from './login_guard';
+import { FileStoreComponent } from './file-store/file-store.component';
 
 const appRoutes: Routes = [
   { path: 'main', component: MainComponent },
   { path: 'list', component: ListComponent },
   { path: 'adminka', component: AdminkaComponent, canActivate: [AdminGuard] },
-  { path: 'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent, canActivate: [loginGuard] },
   { path: 'registration', component: RegistrationComponent},
+  { path: 'fileStore', component: FileStoreComponent },
   { path: '', redirectTo: '/main', pathMatch: 'full' }
 ];
 
@@ -28,7 +31,8 @@ const appRoutes: Routes = [
     MainComponent,
     AdminkaComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    FileStoreComponent
   ],
   imports: [
     HttpClientModule,
@@ -40,7 +44,7 @@ const appRoutes: Routes = [
     AppRoutingModule,
     FormsModule
   ],
-  providers: [AdminGuard],
+  providers: [AdminGuard, loginGuard],
   bootstrap: [AppComponent]
 })
 

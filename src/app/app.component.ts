@@ -33,11 +33,9 @@ export class AppComponent {
 
     SEE(name:string, visible:boolean) {
       if(visible){
-        // setTimeout(()=>this.SEE("Name",false), 1000);
-        document.getElementById("UserInfo").innerText = name;
+        document.getElementById("UserInfo").innerText = "Привет, "+ name.split(' ')[0] + "!";
         document.getElementById("UserInfo").style.visibility = "visible";
       } else{
-        // setTimeout(()=>this.SEE("Name",true), 1000);
         document.getElementById("UserInfo").style.visibility = "hidden";
       }
     }

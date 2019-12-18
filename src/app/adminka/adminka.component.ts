@@ -13,7 +13,6 @@ export class AdminkaComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   products: Array<Product> = [];
-  receivedData: Product;
   done: boolean = false;
   product: Product;
   str: string;
@@ -48,7 +47,7 @@ export class AdminkaComponent implements OnInit {
   }
 
   update_list(){
-    this.http.get('http://localhost:5000/api/1.0/products/getList', {withCredentials: true}).subscribe((response: any) => {
+    this.http.post('http://localhost:5000/api/1.0/products/getList/', {withCredentials: true}).subscribe((response: any) => {
       console.log("response", response);
       this.products = [];
       response.forEach(element => {

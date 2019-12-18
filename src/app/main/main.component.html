@@ -8,19 +8,59 @@
 <div class="content" role="main">
     <div class="d7">
         <form>
-            <input type="text" placeholder="Искать здесь...">
-            <button type="submit"></button>
+            <input type="text" placeholder="Искать здесь..." name="search_name" [(ngModel)]="search_name">
+            <button type="submit" (click)="search(search_name)"></button>
         </form>
     </div>
+
+    <table>
+        <tr>
+            <td>
+                <p> Название </p>
+            </td>
+            <td>
+                <p> Тип </p>
+            </td>
+            <td>
+                <p>Состав </p>
+            </td>
+            <td>
+                <p> Вес </p>
+            </td>
+            <td>
+                <p> Цена </p>
+            </td>
+        </tr>
+        <tr *ngFor="let search_object of search_objects">
+            
+            <td>
+                <p>{{search_object["naming"]}}</p>
+            <td>
+                <p> {{search_object["type_product"]}}</p>
+            </td>
+            <td>
+                <p> {{search_object["composition"]}}</p>
+            </td>
+            <td>
+                <p> {{search_object["weight"]}}</p>
+            </td>
+            <td>
+                <p> {{search_object["cost"]}}</p>
+            </td>
+        </tr>
+    </table>
 
     <!-- Resources -->
     <div class="cardReg" class="card-container">
         <h2>Создайте свой аккаунт прямо сейчас! Или войдите в систему, если уже существуете!</h2>
-        <a class="cardReg" routerLink="/login">
+        <a class="knopka" id="Login" routerLink="/login">
             <h2>Войти</h2>
         </a>
-        <a class="cardReg" routerLink="/registration">
+        <a class="knopka" routerLink="/registration">
             <h2>Регистрация</h2>
+        </a>
+        <a class="knopka" id="Exit" (click)="exit()">
+            <h2>Выйти</h2>
         </a>
     </div>
 
@@ -53,6 +93,11 @@
     <nav>
         <a routerLink="/adminka">
             <h2>Админка</h2>
+        </a>
+    </nav>
+    <nav>
+        <a routerLink="/fileStore">
+            <h2>Хранение файлов</h2>
         </a>
     </nav>
     <input type="hidden" #selection>

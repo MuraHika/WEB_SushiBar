@@ -31,7 +31,6 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/']);
         console.log("--------------------------------")
         this.getCookie("token");
-        // this.messageService.sendMessage('Message from Home Component to App Component!');
         console.log("DONE")
       }
       console.log(data)
@@ -46,14 +45,4 @@ export class LoginComponent implements OnInit {
       return parts.pop().split(";").shift();
     }
   }
-
-//   sendMessage(): void {
-//     // отправляем сообщения ко всем кто подписался через observable subject
-//     this.messageService.sendMessage('Message from Home Component to App Component!');
-//   }
-
-//   clearMessage(): void {
-//     // очищаем сообщения
-//     this.messageService.clearMessage();
-// }
 }

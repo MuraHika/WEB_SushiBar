@@ -1,0 +1,17 @@
+<br>
+<h2>Загрузите файл на сайт:</h2>
+<br>
+<br>
+<form>
+    <input type="file" (change)="fileChange($event)" name="fileStore">
+</form>
+
+<br>
+<h2>Список ваших файлов:</h2>
+<ul *ngFor="let file of files">
+    <li>
+        <a href={{file[0]}}>
+            <h3> {{file[1]}}</h3>
+        </a>
+    </li>
+</ul>

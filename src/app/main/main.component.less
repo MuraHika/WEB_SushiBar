@@ -69,6 +69,7 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 16px;
+    visibility: visible;
   }
 
   .card {
@@ -100,6 +101,7 @@
     justify-content: center;
     align-items: center;
     transition: all 0.2s ease-in-out;
+    visibility: visible;
   }
 
 
@@ -233,4 +235,22 @@
     font-family: FontAwesome;
     color: #324b4e;
   }
+
+  a.knopka {
+    // margin-top: 30px;
+    margin: 10px;
+    padding: 10px;
+    // padding-bottom: 15px;
+    // margin-bottom: 100px;
+    color: #fff; /* цвет текста */
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    background: rgb(97, 18, 7); /* фон кнопки */
+    // padding: .7em 1.5em; /* отступ от текста */
+    display: inline-block; 
+    outline: none; /* убирать контур в Mozilla */
+    visibility: visible;
+  } 
+  a.knopka:hover { background: rgb(232,95,76); } /* при наведении курсора мышки */
+  a.knopka:active { background: rgb(152,15,0); } /* при нажатии */
 
