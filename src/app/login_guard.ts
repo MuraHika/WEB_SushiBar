@@ -11,7 +11,7 @@ export class loginGuard implements CanActivate {
         console.log("TOKEN ИЩЕТСЯ");
         console.log(this.getCookie("token"));
         if (token != '') {
-            return false
+            return true
         }
         return true
     }
